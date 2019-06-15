@@ -64,18 +64,18 @@ static const char unknown_str[] = "n/a";
 
 static const struct arg args[] = {
 	/* function format          argument */
-	{ battery_perc,      " 🗲 %s%%",       "BAT0"},
-	{ battery_remaining, " %s",           "BAT0"},
-	{ run_command,       " %s ",          "amixer sget Master | grep 'Right:' | awk -F'[][]' '$4 == \"on\" { print \"🔉\" } $4 == \"off\" { print \"🔇\" }'"},
-	{ run_command,       "%s",            "amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'"},
-	{ keymap,            " ⌨ %s",         ""},
-	{ run_command,       " 🗓 %s ",        "date +'%a %b %d'"},
-	{ run_command,       "⌚ %s",         "date +%T"},
-	{ cpu_perc,          ";💻 cpu %s%%",  "" },
-	{ temp,              " 🌡 %s",         "/sys/class/thermal/thermal_zone0/temp" },
-	{ temp,              "/%s C°",        "/sys/class/thermal/thermal_zone1/temp" },
-/*	{ temp,              "/%s",           "/sys/class/thermal/thermal_zone2/temp" }, */
-/*	{ temp,              "/%s C°",        "/sys/class/thermal/thermal_zone3/temp" }, */
-	{ disk_perc,         " disk %s%%",    "/"},
-	{ ram_perc,          " mem %s%%",     ""},
+	{ battery_perc,      " 🗲 %s%%",         "BAT0"},
+	{ battery_remaining, " %s|",            "BAT0"},
+	{ run_command,       " %s ",            "amixer sget Master | grep 'Right:' | awk -F'[][]' '$4 == \"on\" { print \"🔉\" } $4 == \"off\" { print \"🔇\" }'"},
+	{ run_command,       "%s |",            "amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'"},
+	{ keymap,            " ⌨ %s |",         ""},
+	{ run_command,       " 🗓 %s ",          "date +'%a %b %d'"},
+	{ run_command,       "⌚ %s",           "date +%T"},
+	{ disk_perc,         ";disk %s%% |",    "/"},
+	{ ram_perc,          " mem %s%% |",     ""},
+	{ cpu_perc,          " 💻 cpu %s%%",    "" },
+	{ temp,              " 🌡 %s",           "/sys/class/thermal/thermal_zone0/temp" },
+	{ temp,              "/%s C°",          "/sys/class/thermal/thermal_zone1/temp" },
+/*	{ temp,              "/%s",             "/sys/class/thermal/thermal_zone2/temp" }, */
+/*	{ temp,              "/%s C°",          "/sys/class/thermal/thermal_zone3/temp" }, */
 };
