@@ -66,7 +66,8 @@ static const struct arg args[] = {
 	/* function format          argument */
 	{ battery_perc,      " 🗲 %s%%",       "BAT0"},
 	{ battery_remaining, " %s",           "BAT0"},
-	{ run_command,       " 🔉%s",         "amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'"},
+	{ run_command,       " %s ",          "amixer sget Master | grep 'Right:' | awk -F'[][]' '$4 == \"on\" { print \"🔉\" } $4 == \"off\" { print \"🔇\" }'"},
+	{ run_command,       "%s",            "amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'"},
 	{ keymap,            " ⌨ %s",         ""},
 	{ run_command,       " 🗓 %s ",        "date +'%a %b %d'"},
 	{ run_command,       "⌚ %s",         "date +%T"},
