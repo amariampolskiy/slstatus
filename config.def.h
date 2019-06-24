@@ -61,8 +61,21 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
+
 static const struct arg args[] = {
 	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
-	{ cpu_perc, ";%s",          "" },
+	{ battery_perc,      " 🗲 %s%%",         "BAT0"},
+	{ battery_remaining, " %s|",            "BAT0"},
+	{ run_command,       " %s ",            "amixer sget Master | grep 'Right:' | awk -F'[][]' '$4 == \"on\" { print \"🔉\" } $4 == \"off\" { print \"🔇\" }'"},
+	{ run_command,       "%s |",            "amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'"},
+	{ keymap,            " ⌨ %s |",         ""},
+	{ run_command,       " 🗓 %s ",          "date +'%a %b %d'"},
+	{ run_command,       "⌚ %s",           "date +%T"},
+	{ disk_perc,         ";disk %s%% |",    "/"},
+	{ ram_perc,          " mem %s%% |",     ""},
+	{ cpu_perc,          " 💻 cpu %s%%",    "" },
+	{ temp,              " 🌡 %s",           "/sys/class/thermal/thermal_zone0/temp" },
+	{ temp,              "/%s C°",          "/sys/class/thermal/thermal_zone1/temp" },
+/*	{ temp,              "/%s",             "/sys/class/thermal/thermal_zone2/temp" }, */
+/*	{ temp,              "/%s C°",          "/sys/class/thermal/thermal_zone3/temp" }, */
 };
