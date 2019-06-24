@@ -2,13 +2,12 @@
 
 Shows:
   + Upper bar
-    + Battery percentage and remaining time
+    + Sound volume
     + Keyboard layout
     + Date and time
   + Lower bar
     + Disk usage percentage
     + Memory usage
-    + CPU usage + temperature 
+    + CPU usage + temperature (3 zones)
 
-P.S. Main configuration is for my thinkpad x220. There are other branches with different configs.
   
